@@ -1,0 +1,3 @@
+D:/Dormitory/cmake-build-debug/CMakeFiles/Dormitory.dir
+D:/Dormitory/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Dormitory/cmake-build-debug/CMakeFiles/rebuild_cache.dir

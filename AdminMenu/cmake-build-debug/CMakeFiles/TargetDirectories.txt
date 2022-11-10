@@ -1,0 +1,3 @@
+D:/AdminMenu/cmake-build-debug/CMakeFiles/AdminMenu.dir
+D:/AdminMenu/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/AdminMenu/cmake-build-debug/CMakeFiles/rebuild_cache.dir

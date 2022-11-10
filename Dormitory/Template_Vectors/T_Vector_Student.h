@@ -5,7 +5,7 @@
 #ifndef UNIVERSITY_T_VECTOR_STUDENT_H
 #define UNIVERSITY_T_VECTOR_STUDENT_H
 
-#include "D:\University\Studying_Practice_Tasks\3-4_semester\Task_1\A_Vectors\A_Student_Vector.h"
+#include "../A_Vectors/A_Student_Vector.h"
 #include "../Student.h"
 #include "T_Vector.h"
 

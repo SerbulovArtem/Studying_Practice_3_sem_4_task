@@ -3,7 +3,7 @@
 
 #include "Person_Vector.h"
 #include "../Worker.h"
-#include "D:\University\Studying_Practice_Tasks\3-4_semester\Task_1\A_Vectors\A_Worker_Vector.h"
+#include "../A_Vectors/A_Worker_Vector.h"
 #include <vector>
 
 namespace InheritanceVector {

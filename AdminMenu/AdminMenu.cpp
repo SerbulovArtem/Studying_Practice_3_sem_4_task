@@ -1,11 +1,11 @@
 #include "AdminMenu.h"
 
 Admin_Management_Console::Admin_Management_Console() noexcept : user_input{0} {
-    Vector_Factory_Provider factoryProvider;
-    A_Vector_Factory* vectorFactory = factoryProvider.GetVectorFactory();
+    Factory_Provider factoryProvider;
+    A_Container_Factory* ContainerFactory = factoryProvider.GetVectorFactory();
 
-    this->students = vectorFactory->GetStudentVector();
-    this->workers = vectorFactory->GetWorkerVector();
+    this->students = ContainerFactory->GetStudentContainer();
+    this->workers = ContainerFactory->GetWorkerContainer();
 
     *this->students >> this->input_output_file_student;
     *this->workers >> this->input_output_file_worker;
@@ -19,10 +19,10 @@ void Admin_Management_Console::admin() {
                      "1: Print All students and workers on terminal\n"
                      "2: Add new student\n"
                      "3: Add new worker\n"
-                     "4: Delete student by name\n"
-                     "5: Delete worker by name\n"
-                     "6: Sort student vector by room number\n"
-                     "7: Sort worker vector by salary\n";
+                     "4: Delete student\n"
+                     "5: Delete worker\n"
+                     "6: Sort student container by room number\n"
+                     "7: Sort worker container by salary\n";
         do {
             std::cout << "Enter number from 0-9:";
             std::cin >> this->user_input;
@@ -33,18 +33,16 @@ void Admin_Management_Console::admin() {
                 *this->students >> this->input_output_file_student;
                 *this->workers >> this->input_output_file_worker;
                 std::cout << "\nStudents:\n";
-                //std::cout << this->students;
                 this->students->printAllInfo();
                 std::cout << "\nWorkers:\n";
-                //std::cout << this->workers;
                 this->workers->printAllInfo();
                 break;
             case (2):
-                +*this->students;
+                handleAddStudent();
                 *this->students << this->input_output_file_student;
                 break;
             case (3):
-                +*this->workers;
+                handleAddWorker();
                 *this->workers << this->input_output_file_worker;
                 break;
             case (4):
@@ -56,11 +54,11 @@ void Admin_Management_Console::admin() {
                 *this->workers << this->input_output_file_worker;
                 break;
             case (6):
-                this->students->sortVectorByRoomNumber();
+                this->students->sortContainerByRoomNumber();
                 *this->students << this->input_output_file_student;
                 break;
             case (7):
-                this->workers->sortVectorBySalary();
+                this->workers->sortContainerBySalary();
                 *this->workers << this->input_output_file_worker;
                 break;
         }
@@ -69,6 +67,36 @@ void Admin_Management_Console::admin() {
 
     } while(this->user_input != 0);
     std::cout << "\n~~~~~~Management menu successfully terminated~~~~~~\n";
+}
+
+void Admin_Management_Console::handleAddStudent() {
+    std::string name, surname;
+    size_t age, course, room_number;
+    std::cout << "Enter: name, surname, age, course, room number:\n";
+    std::cin >> name >> surname >> age >> course >> room_number;
+    try {
+        Student *student = new Student(name, surname, age, course, room_number);
+        this->students->addStudent(student);
+    }
+    catch(const char* err){
+        std::cout << "\nInvalid value!\n"
+                     "Student is not added!\n";
+    }
+}
+
+void Admin_Management_Console::handleAddWorker() {
+    std::string name, surname, position;
+    size_t age, salary;
+    std::cout << "Enter: name, surname, age, position, salary:\n";
+    std::cin >> name >> surname >> age >> position >> salary;
+    try{
+        Worker *worker = new Worker(name, surname, age, position, salary);
+        this->workers->addWorker(worker);
+    }
+    catch(const char* err){
+        std::cout << "\nInvalid value!\n"
+                     "Worker is not added!\n";
+    }
 }
 
 Admin_Management_Console::~Admin_Management_Console() {

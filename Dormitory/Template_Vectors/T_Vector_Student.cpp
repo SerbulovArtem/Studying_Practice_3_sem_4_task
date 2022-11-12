@@ -68,7 +68,7 @@ void T_Vector_Student::operator-() noexcept {
     this->remove();
 }
 
-void T_Vector_Student::sortVectorByRoomNumber() noexcept {
+void T_Vector_Student::sortContainerByRoomNumber() noexcept {
     std::ranges::sort(this->vector, [](Student &student1, Student &student2) {
         return student1.getRoomNumber()
                < student2.getRoomNumber();
@@ -79,4 +79,8 @@ T_Vector_Student::~T_Vector_Student() { }
 
 void T_Vector_Student::printAllInfo() const noexcept {
     T_Vector<Student>::printAllInfo();
+}
+
+void T_Vector_Student::addStudent(Student *student) noexcept {
+
 }

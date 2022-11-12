@@ -3,13 +3,16 @@
 #include "Person.h"
 
 class Student : public Person{
+private:
+    bool isValid(std::string name, std::string surname, size_t age
+                 , size_t course, size_t room_number);
 protected:
     size_t course;
     size_t room_number;
 public:
 
     Student(const std::string &name = "", const std::string &surname = "",size_t age = 0
-            , size_t course = 0, size_t roomNumber = 0) noexcept;
+            , size_t course = 0, size_t roomNumber = 0);
 
     size_t getCourse() const noexcept;
 

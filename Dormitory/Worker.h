@@ -1,15 +1,19 @@
 #ifndef UNIVERSITY_WORKER_H
 #define UNIVERSITY_WORKER_H
+
 #include "Person.h"
 
-class Worker : public Person{
+class Worker : public Person {
+private:
+    bool isValid(std::string name, std::string surname, size_t age
+                 , std::string position, size_t salary);
 protected:
     std::string position;
     size_t salary;
 public:
 
-    Worker(const std::string &name = "", const std::string &surname = "",size_t age = 0
-            ,const std::string& position = "", size_t salary = 0) noexcept;
+    Worker(const std::string &name = "", const std::string &surname = "", size_t age = 0,
+           const std::string &position = "", size_t salary = 0);
 
     const std::string &getPosition() const noexcept;
 
@@ -23,7 +27,7 @@ public:
 
     virtual std::ostream &operator<<(std::ostream &os) noexcept override;
 
-    virtual std::string getStr() const noexcept override ;
+    virtual std::string getStr() const noexcept override;
 
     virtual std::istream &operator>>(std::istream &is) override;
 

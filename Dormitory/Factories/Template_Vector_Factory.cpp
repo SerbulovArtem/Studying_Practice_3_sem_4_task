@@ -1,9 +1,9 @@
 #include "Template_Vector_Factory.h"
 
-A_Student_Vector *Template_Vector_Factory::GetStudentVector() const noexcept {
+A_Student_Container *Template_Vector_Factory::GetStudentContainer() const noexcept {
     return new Template_Vector::T_Vector_Student;
 }
 
-A_Worker_Vector *Template_Vector_Factory::GetWorkerVector() const noexcept {
+A_Worker_Container *Template_Vector_Factory::GetWorkerContainer() const noexcept {
     return new Template_Vector::T_Vector_Worker;
 }

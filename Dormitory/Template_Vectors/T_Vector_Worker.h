@@ -5,12 +5,12 @@
 #ifndef UNIVERSITY_T_VECTOR_WORKER_H
 #define UNIVERSITY_T_VECTOR_WORKER_H
 
-#include "../A_Vectors/A_Worker_Vector.h"
+#include "../A_Vectors/A_Worker_Container.h"
 #include "../Worker.h"
 #include "T_Vector.h"
 
 namespace Template_Vector {
-    class T_Vector_Worker : private T_Vector<Worker>, public A_Worker_Vector{
+    class T_Vector_Worker : private T_Vector<Worker>, public A_Worker_Container{
     public:
         explicit T_Vector_Worker() noexcept;
 
@@ -26,11 +26,13 @@ namespace Template_Vector {
 
         void operator+() noexcept override;
 
+        void addWorker(Worker* worker) noexcept override;
+
         void remove() noexcept override;
 
         void operator-() noexcept override;
 
-        void sortVectorBySalary() noexcept override;
+        void sortContainerBySalary() noexcept override;
 
         virtual ~T_Vector_Worker() override;
 

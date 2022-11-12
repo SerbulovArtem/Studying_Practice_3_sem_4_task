@@ -54,6 +54,10 @@ void Worker_Vector::operator+() noexcept{
     this->add();
 }
 
+void Worker_Vector::addWorker(Worker *worker) noexcept {
+    this->person_vector.emplace_back(worker);
+}
+
 void Worker_Vector::remove() noexcept {
     std::string name;
     std::cout << "Enter name:\n";
@@ -69,7 +73,7 @@ void Worker_Vector::operator-() noexcept{
     this->remove();
 }
 
-void Worker_Vector::sortVectorBySalary() noexcept {
+void Worker_Vector::sortContainerBySalary() noexcept {
     std::ranges::sort(this->person_vector, [](Person *&worker1, Person *&worker2) {
         return dynamic_cast<Worker *>(worker1)->getSalary()
                < dynamic_cast<Worker *>(worker2)->getSalary();

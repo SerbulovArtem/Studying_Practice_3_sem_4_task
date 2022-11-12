@@ -1,5 +1,5 @@
-Malcolm Howe 30 Guard 2000
-Iwan Churchill 60 Cleaner 1300
-Jim Denton 28 Plumber 1100
-Harris Keller 50 Porter 2200
 Amelia Diaz 25 Receptionist 2500
+Harris Keller 50 Porter 2200
+Jim Denton 28 Plumber 1100
+Iwan Churchill 60 Cleaner 1300
+Malcolm Howe 30 Guard 2000

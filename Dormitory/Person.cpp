@@ -1,7 +1,13 @@
 #include "Person.h"
 
-Person::Person(std::string name, std::string surname, size_t age) noexcept
-: name{name}, surname{surname}, age{age < 0 ? 0 : age} {}
+Person::Person(std::string name, std::string surname, size_t age){
+    if (!isValid(name, surname, age)){
+        throw "Invalid data";
+    }
+    this->name = name;
+    this->surname = surname;
+    this->age = age;
+}
 
 const std::string &Person::getName() const noexcept { return this->name; }
 
@@ -41,6 +47,13 @@ void Person::input(std::istream &is){
         std::cout << "Enter: name, surname, age:\n";
     }
     is >> this->name >> this->surname >> this->age;
+}
+
+bool Person::isValid(std::string name, std::string surname, size_t age) {
+    AValidator* validator = new StringValidator{name};
+    validator->SetNext(new StringValidator(surname))
+    ->SetNext(new AgeValidator(age));
+    return validator->Validate();
 }
 
 Person::~Person() { }

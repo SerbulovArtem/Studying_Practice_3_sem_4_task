@@ -1,11 +1,11 @@
 #include "UserMenu.h"
 
 User_Management_Console::User_Management_Console() noexcept : user_input{0}{
-    Vector_Factory_Provider factoryProvider;
-    A_Vector_Factory* vectorFactory = factoryProvider.GetVectorFactory();
+    Factory_Provider factoryProvider;
+    A_Container_Factory* vectorFactory = factoryProvider.GetVectorFactory();
 
-    this->students = vectorFactory->GetStudentVector();
-    this->workers = vectorFactory->GetWorkerVector();
+    this->students = vectorFactory->GetStudentContainer();
+    this->workers = vectorFactory->GetWorkerContainer();
 
     *this->students >> this->input_output_file_student;
     *this->workers >> this->input_output_file_worker;
@@ -37,13 +37,13 @@ void User_Management_Console::user() {
                 break;
             case (2):
                 *this->students >> this->input_output_file_student;
-                this->students->sortVectorByRoomNumber();
+                this->students->sortContainerByRoomNumber();
                 std::cout << "\nStudents:\n";
                 this->students->printAllInfo();
                 break;
             case (3):
                 *this->workers >> this->input_output_file_worker;
-                this->workers->sortVectorBySalary();
+                this->workers->sortContainerBySalary();
                 std::cout << "\nWorkers:\n";
                 this->workers->printAllInfo();
                 break;

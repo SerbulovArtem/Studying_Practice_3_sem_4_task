@@ -6,14 +6,19 @@
 #include <algorithm>
 #include <ranges>
 #include <sstream>
+#include <unordered_map>
+#include <memory>
+#include "Validators/Validator.h"
 
 class Person {
+private:
+    bool isValid(std::string name, std::string surname, size_t age);
 protected:
     std::string name;
     std::string surname;
     size_t age;
 public:
-    Person(std::string name = "", std::string surname = "", size_t age = 0) noexcept;
+    Person(std::string name = "", std::string surname = "", size_t age = 0);
 
     const std::string &getName() const noexcept;
 

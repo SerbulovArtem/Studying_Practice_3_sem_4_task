@@ -3,12 +3,12 @@
 
 #include "Person_Vector.h"
 #include "../Worker.h"
-#include "../A_Vectors/A_Worker_Vector.h"
+#include "../A_Vectors/A_Worker_Container.h"
 #include <vector>
 
 namespace InheritanceVector {
 
-    class Worker_Vector : private Person_Vector, public A_Worker_Vector {
+    class Worker_Vector : private Person_Vector, public A_Worker_Container {
     public:
         explicit Worker_Vector() noexcept;
 
@@ -24,13 +24,15 @@ namespace InheritanceVector {
 
         void operator+() noexcept override;
 
+        void addWorker(Worker* worker) noexcept override;
+
         void remove() noexcept override;
 
         void operator-() noexcept override;
 
         virtual void printAllInfo() const noexcept override;
 
-        void sortVectorBySalary() noexcept override;
+        void sortContainerBySalary() noexcept override;
 
         virtual ~Worker_Vector() override;
 

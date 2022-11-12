@@ -5,7 +5,7 @@
 #include <filesystem>
 #include <vector>
 
-class A_TVector{
+class A_Container{
 public:
     virtual void getInfoFromFile(const std::filesystem::path &path) noexcept = 0;
 

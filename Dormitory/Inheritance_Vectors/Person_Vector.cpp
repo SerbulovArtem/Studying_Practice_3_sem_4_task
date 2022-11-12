@@ -43,4 +43,8 @@ void Person_Vector::deletePerson() noexcept {
     }
 }
 
-Person_Vector::~Person_Vector() {}
+Person_Vector::~Person_Vector() {
+    for (auto &el : person_vector){
+        delete el;
+    }
+}

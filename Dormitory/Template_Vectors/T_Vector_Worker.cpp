@@ -68,7 +68,7 @@ void T_Vector_Worker::operator-() noexcept {
     this->remove();
 }
 
-void T_Vector_Worker::sortVectorBySalary() noexcept {
+void T_Vector_Worker::sortContainerBySalary() noexcept {
     std::ranges::sort(this->vector, [](Worker &worker1, Worker &worker2) {
         return worker1.getSalary()
                < worker2.getSalary();
@@ -81,4 +81,8 @@ T_Vector_Worker::~T_Vector_Worker() {
 
 void T_Vector_Worker::printAllInfo() const noexcept {
     T_Vector<Worker>::printAllInfo();
+}
+
+void T_Vector_Worker::addWorker(Worker *worker) noexcept {
+
 }

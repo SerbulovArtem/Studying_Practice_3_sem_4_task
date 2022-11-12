@@ -54,6 +54,10 @@ void Student_Vector::operator+() noexcept {
     this->add();
 }
 
+void Student_Vector::addStudent(Student *student) noexcept {
+    this->person_vector.emplace_back(student);
+}
+
 void Student_Vector::remove() noexcept {
     std::string name;
     std::cout << "Enter name:\n";
@@ -73,7 +77,7 @@ void Student_Vector::printAllInfo() const noexcept {
     Person_Vector::printAllInfo();
 }
 
-void Student_Vector::sortVectorByRoomNumber() noexcept {
+void Student_Vector::sortContainerByRoomNumber() noexcept {
     std::ranges::sort(this->person_vector, [](Person *&student1, Person *&student2) {
         return dynamic_cast<Student *>(student1)->getRoomNumber()
                < dynamic_cast<Student *>(student2)->getRoomNumber();
